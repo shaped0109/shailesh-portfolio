@@ -19,11 +19,11 @@ const MarqueeChip = ({ name, title, company, quote }) => (
     'border border-light-border dark:border-dark-border',
     'max-w-xs cursor-default select-none'
   )}>
-    <p className="font-body text-xs text-gray-600 dark:text-ink-secondary leading-snug mb-2 line-clamp-2">
+    <p className="font-body text-xs text-dark-muted dark:text-ink-secondary leading-snug mb-2 line-clamp-2">
       "{quote}"
     </p>
-    <p className="font-display font-semibold text-xs text-gray-900 dark:text-ink-primary">{name}</p>
-    <p className="font-body text-xs text-gray-400 dark:text-ink-muted">{title} · {company}</p>
+    <p className="font-display font-semibold text-xs text-dark-base dark:text-ink-primary">{name}</p>
+    <p className="font-body text-xs text-dark-muted/60 dark:text-ink-muted">{title} · {company}</p>
   </div>
 )
 
@@ -53,8 +53,8 @@ const Spotlight = () => {
       ref={ref}
       className={cn(
         'relative rounded-3xl overflow-hidden px-8 py-12 md:px-16 md:py-16',
-        'bg-dark-surface dark:bg-dark-surface light:bg-gray-900',
-        'border border-dark-muted',
+        'bg-light-surface dark:bg-dark-surface',
+        'border border-light-border dark:border-dark-muted',
         'transition-[opacity,transform] duration-700',
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       )}
@@ -78,7 +78,7 @@ const Spotlight = () => {
           visible ? 'opacity-100' : 'opacity-0'
         )}
       >
-        <blockquote className="font-display font-semibold text-xl md:text-2xl lg:text-3xl text-white leading-snug mb-8 max-w-3xl"
+        <blockquote className="font-display font-semibold text-xl md:text-2xl lg:text-3xl text-dark-base dark:text-ink-primary leading-snug mb-8 max-w-3xl"
           style={{ letterSpacing: '-0.02em' }}
         >
           "{active.quote}"
@@ -92,8 +92,8 @@ const Spotlight = () => {
             </span>
           </div>
           <div>
-            <p className="font-display font-semibold text-sm text-white">{active.name}</p>
-            <p className="font-body text-xs text-gray-400">{active.title} · {active.company}</p>
+            <p className="font-display font-semibold text-sm text-dark-base dark:text-ink-primary">{active.name}</p>
+            <p className="font-body text-xs text-dark-muted/60 dark:text-ink-muted">{active.title} · {active.company}</p>
           </div>
         </div>
       </div>
@@ -110,7 +110,7 @@ const Spotlight = () => {
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand',
               i === activeIndex
                 ? 'w-6 h-2 bg-brand'
-                : 'w-2 h-2 bg-white/20 hover:bg-white/40'
+                : 'w-2 h-2 bg-dark-muted/30 dark:bg-white/20 hover:bg-dark-muted/50 dark:hover:bg-white/40'
             )}
           />
         ))}
@@ -141,7 +141,7 @@ const TestimonialsSection = () => {
             Social Proof
           </p>
           <div className="flex flex-wrap items-end gap-4">
-            <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 dark:text-ink-primary tracking-tight">
+            <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-dark-base dark:text-ink-primary tracking-tight">
               What colleagues say
             </h2>
             <span className={cn(
