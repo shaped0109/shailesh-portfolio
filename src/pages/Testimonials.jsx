@@ -14,11 +14,11 @@ const MarqueeChip = ({ name, title, company, quote }) => (
     'border border-light-border dark:border-dark-border',
     'max-w-xs cursor-default select-none'
   )}>
-    <p className="font-body text-xs text-gray-600 dark:text-ink-secondary leading-snug mb-2 line-clamp-2">
+    <p className="font-body text-xs text-dark-muted dark:text-ink-secondary leading-snug mb-2 line-clamp-2">
       "{quote}"
     </p>
-    <p className="font-display font-semibold text-xs text-gray-900 dark:text-ink-primary">{name}</p>
-    <p className="font-body text-xs text-gray-400 dark:text-ink-muted">{title} · {company}</p>
+    <p className="font-display font-semibold text-xs text-dark-base dark:text-ink-primary">{name}</p>
+    <p className="font-body text-xs text-dark-muted/60 dark:text-ink-muted">{title} · {company}</p>
   </div>
 )
 
@@ -45,8 +45,8 @@ const Spotlight = () => {
       ref={ref}
       className={cn(
         'relative rounded-3xl overflow-hidden px-6 py-8 md:px-10 md:py-10',
-        'bg-dark-surface dark:bg-dark-surface light:bg-gray-900',
-        'border border-dark-muted',
+        'bg-light-surface dark:bg-dark-surface',
+        'border border-light-border dark:border-dark-muted',
         'transition-[opacity,transform] duration-700',
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       )}
@@ -62,7 +62,7 @@ const Spotlight = () => {
         <div className="min-h-[5rem] md:min-h-[6rem] lg:min-h-[7rem] mb-6">
           <blockquote
             className={cn(
-              'font-display font-semibold text-2xl md:text-3xl lg:text-4xl text-white leading-snug max-w-3xl',
+              'font-display font-semibold text-2xl md:text-3xl lg:text-4xl text-dark-base dark:text-ink-primary leading-snug max-w-3xl',
               'transition-opacity duration-400',
               visible ? 'opacity-100' : 'opacity-0'
             )}
@@ -82,8 +82,8 @@ const Spotlight = () => {
             </span>
           </div>
           <div>
-            <p className="font-display font-semibold text-base text-white">{active.name}</p>
-            <p className="font-body text-sm text-gray-400">{active.title} · {active.company}</p>
+            <p className="font-display font-semibold text-base text-dark-base dark:text-ink-primary">{active.name}</p>
+            <p className="font-body text-sm text-dark-muted/60 dark:text-ink-muted">{active.title} · {active.company}</p>
           </div>
         </div>
       </div>
@@ -96,7 +96,7 @@ const Spotlight = () => {
             aria-label={`View testimonial from ${TESTIMONIALS[i].name}`}
             className={cn(
               'rounded-full transition-[width,opacity] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand',
-              i === activeIndex ? 'w-6 h-2 bg-brand' : 'w-2 h-2 bg-white/20 hover:bg-white/40'
+              i === activeIndex ? 'w-6 h-2 bg-brand' : 'w-2 h-2 bg-dark-muted/30 dark:bg-white/20 hover:bg-dark-muted/50 dark:hover:bg-white/40'
             )}
           />
         ))}
@@ -122,7 +122,7 @@ const TestimonialCard = ({ name, title, company, quote, full, index }) => {
       style={{ transitionDelay: `${index * 80}ms` }}
     >
       <Quote size={16} className="text-brand/40 shrink-0" />
-      <p className="font-body text-sm text-gray-600 dark:text-ink-secondary leading-relaxed">
+      <p className="font-body text-sm text-dark-muted dark:text-ink-secondary leading-relaxed">
         {expanded ? full : `"${quote}"`}
       </p>
       <button
@@ -132,8 +132,8 @@ const TestimonialCard = ({ name, title, company, quote, full, index }) => {
         {expanded ? 'Show less' : 'Read more'}
       </button>
       <div className="mt-auto pt-3 border-t border-light-border dark:border-dark-border">
-        <p className="font-display font-semibold text-sm text-gray-900 dark:text-ink-primary">{name}</p>
-        <p className="font-body text-xs text-gray-500 dark:text-ink-muted mt-0.5">{title} · {company}</p>
+        <p className="font-display font-semibold text-sm text-dark-base dark:text-ink-primary">{name}</p>
+        <p className="font-body text-xs text-dark-muted/60 dark:text-ink-muted mt-0.5">{title} · {company}</p>
       </div>
     </div>
   )
@@ -154,10 +154,10 @@ const Testimonials = () => {
         </div>
         <div className="relative max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
           <p className="text-brand text-sm font-body font-semibold uppercase tracking-widest mb-3">Social Proof</p>
-          <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-ink-primary tracking-tight">
+          <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-dark-base dark:text-ink-primary tracking-tight">
             What Colleagues Say
           </h1>
-          <p className="font-body text-base md:text-lg text-gray-600 dark:text-ink-secondary mt-4 max-w-xl">
+          <p className="font-body text-base md:text-lg text-dark-muted dark:text-ink-secondary mt-4 max-w-xl">
             LinkedIn recommendations from engineers, managers, and HR leaders across various companies.
           </p>
         </div>
@@ -177,7 +177,7 @@ const Testimonials = () => {
             inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           )}
         >
-          <h2 className="font-display font-bold text-2xl md:text-3xl text-gray-900 dark:text-ink-primary tracking-tight">
+          <h2 className="font-display font-bold text-2xl md:text-3xl text-dark-base dark:text-ink-primary tracking-tight">
             All Recommendations
           </h2>
         </div>
@@ -212,7 +212,7 @@ const Testimonials = () => {
             'inline-flex items-center gap-2 px-6 py-3 rounded-xl',
             'border border-light-border dark:border-dark-border',
             'bg-white dark:bg-dark-card',
-            'font-body text-sm font-medium text-gray-700 dark:text-ink-secondary',
+            'font-body text-sm font-medium text-dark-muted dark:text-ink-secondary',
             'hover:border-brand/40 hover:text-brand transition-colors duration-200',
             'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand'
           )}
