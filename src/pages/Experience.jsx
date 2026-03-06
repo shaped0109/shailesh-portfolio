@@ -73,7 +73,7 @@ const Experience = () => (
       <div className="relative max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
         <p className="text-brand text-sm font-body font-semibold uppercase tracking-widest mb-3">Career</p>
         <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-ink-primary tracking-tight">
-          18 Years of Building<br /><span className="text-brand">What Matters</span>
+          18+ Years of Building<br /><span className="text-brand">What Matters</span>
         </h1>
         <p className="mt-4 text-gray-600 dark:text-ink-secondary font-body text-base md:text-lg max-w-2xl">
           A career defined by technical depth, delivery ownership, and continuous growth — from developer to architect to agile leader.

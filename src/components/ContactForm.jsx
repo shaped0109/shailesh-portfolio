@@ -1,4 +1,3 @@
-import { Send } from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '../utils/cn'
 
@@ -34,12 +33,6 @@ const ContactForm = () => {
         <label htmlFor="message" className="block text-xs font-body font-semibold text-gray-500 dark:text-ink-secondary uppercase tracking-wider mb-2">Message</label>
         <textarea id="message" name="message" rows={5} placeholder="Tell me about the opportunity or project..." value={form.message} onChange={handleChange} className={cn(inputBase, 'resize-none')} />
       </div>
-      <button
-        type="submit"
-        className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-brand hover:bg-brand-700 text-white font-body font-semibold text-sm shadow-teal-md hover:shadow-teal-lg transition-[background-color,box-shadow] duration-200"
-      >
-        <Send size={16} /> Send Message
-      </button>
     </form>
   )
 }

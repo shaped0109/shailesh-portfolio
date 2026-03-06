@@ -44,7 +44,7 @@ const Spotlight = () => {
     <div
       ref={ref}
       className={cn(
-        'relative rounded-3xl overflow-hidden px-8 py-12 md:px-16 md:py-16',
+        'relative rounded-3xl overflow-hidden px-6 py-8 md:px-10 md:py-10',
         'bg-dark-surface dark:bg-dark-surface light:bg-gray-900',
         'border border-dark-muted',
         'transition-[opacity,transform] duration-700',
@@ -53,32 +53,42 @@ const Spotlight = () => {
     >
       <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-brand/10 blur-[80px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-48 h-48 rounded-full bg-amber/5 blur-[60px] pointer-events-none" />
-      <div className="absolute top-6 left-8 font-display font-bold text-[8rem] leading-none text-brand/10 select-none pointer-events-none" aria-hidden="true">
+      <div className="absolute top-4 left-6 font-display font-bold text-[5rem] leading-none text-brand/10 select-none pointer-events-none" aria-hidden="true">
         &ldquo;
       </div>
 
-      <div className={cn('relative z-10 transition-opacity duration-400', visible ? 'opacity-100' : 'opacity-0')}>
-        <blockquote
-          className="font-display font-semibold text-xl md:text-2xl lg:text-3xl text-white leading-snug mb-8 max-w-3xl"
-          style={{ letterSpacing: '-0.02em' }}
-        >
-          "{active.quote}"
-        </blockquote>
-        <p className="font-body text-sm text-gray-300 leading-relaxed max-w-2xl mb-8">{active.full}</p>
-        <div className="flex items-center gap-4">
+      <div className="relative z-10">
+        {/* Fixed-height quote */}
+        <div className="min-h-[5rem] md:min-h-[6rem] lg:min-h-[7rem] mb-6">
+          <blockquote
+            className={cn(
+              'font-display font-semibold text-2xl md:text-3xl lg:text-4xl text-white leading-snug max-w-3xl',
+              'transition-opacity duration-400',
+              visible ? 'opacity-100' : 'opacity-0'
+            )}
+            style={{ letterSpacing: '-0.02em' }}
+          >
+            "{active.quote}"
+          </blockquote>
+        </div>
+
+        <div className={cn(
+          'flex items-center gap-4 transition-opacity duration-400',
+          visible ? 'opacity-100' : 'opacity-0'
+        )}>
           <div className="w-10 h-10 rounded-full bg-brand/20 border border-brand/30 flex items-center justify-center shrink-0">
             <span className="font-display font-bold text-sm text-brand">
               {active.name.split(' ').map(n => n[0]).join('')}
             </span>
           </div>
           <div>
-            <p className="font-display font-semibold text-sm text-white">{active.name}</p>
-            <p className="font-body text-xs text-gray-400">{active.title} · {active.company}</p>
+            <p className="font-display font-semibold text-base text-white">{active.name}</p>
+            <p className="font-body text-sm text-gray-400">{active.title} · {active.company}</p>
           </div>
         </div>
       </div>
 
-      <div className="flex items-center gap-2 mt-10 relative z-10">
+      <div className="flex items-center gap-2 mt-6 relative z-10">
         {TESTIMONIALS.map((_, i) => (
           <button
             key={i}
@@ -148,7 +158,7 @@ const Testimonials = () => {
             What Colleagues Say
           </h1>
           <p className="font-body text-base md:text-lg text-gray-600 dark:text-ink-secondary mt-4 max-w-xl">
-            9 LinkedIn recommendations from engineers, managers, and HR leaders across EXFO and Nokia.
+            LinkedIn recommendations from engineers, managers, and HR leaders across various companies.
           </p>
         </div>
       </div>
