@@ -7,7 +7,7 @@ import './styles/globals.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/shailesh-portfolio">
       <ThemeProvider>
         <App />
       </ThemeProvider>
