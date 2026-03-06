@@ -8,7 +8,7 @@ const SKILL_CATEGORIES = [
   { category: 'Cloud & Infrastructure',  icon: <Cloud size={18} strokeWidth={1.75} />, skills: ['AWS S3', 'Lambda', 'API Gateway', 'Azure DevOps', 'GitLab DevSecOps', 'Docker'] },
   { category: 'CI/CD & DevOps',          icon: <GitBranch size={18} strokeWidth={1.75} />, skills: ['GitLab CI/CD', 'TeamCity', 'Bash Scripting', 'GitHub Actions', 'Automated Regression'] },
   { category: 'Databases & APIs',        icon: <Database size={18} strokeWidth={1.75} />, skills: ['MySQL', 'SQLite', 'REST APIs', 'OAuth2', 'Microservices', 'WCF'] },
-  { category: 'AI & Automation',         icon: <Bot size={18} strokeWidth={1.75} />, skills: ['GitHub Copilot', 'GitLab Duo', 'Cursor', 'Windsurf', 'n8n', 'OpenAI APIs', 'Python POCs'] },
+  { category: 'AI & Automation',         icon: <Bot size={18} strokeWidth={1.75} />, skills: ['Claude Code', 'GitHub Copilot', 'GitLab Duo', 'Cursor', 'Windsurf', 'n8n', 'OpenAI APIs', 'Gemini', 'Python POCs'] },
   { category: 'Agile & Leadership',      icon: <Users size={18} strokeWidth={1.75} />, skills: ['SAFe 6.0', 'Scrum Master', 'PI Planning', 'Backlog Refinement', 'Scrum of Scrums', 'Coaching'] },
   { category: 'Telecom & Networking',    icon: <Network size={18} strokeWidth={1.75} />, skills: ['Ethernet 10M–800G', 'L2/L3 Protocols', 'WiFi', 'PON', 'iperf3', 'OTDR', 'iOLM'] },
   { category: 'Testing & Quality',       icon: <TestTube size={18} strokeWidth={1.75} />, skills: ['Jest', 'NUnit', 'Playwright', 'Postman', 'Coded UI', 'Jira', 'Confluence'] },
@@ -20,7 +20,7 @@ const PageHeader = () => {
     <div ref={ref} className={cn('transition-[opacity,transform] duration-700', inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6')}>
       <p className="text-brand text-sm font-body font-semibold uppercase tracking-widest mb-3">Skills</p>
       <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-ink-primary tracking-tight">
-        The Toolkit Behind<br /><span className="text-brand">18 Years of Delivery</span>
+        The Toolkit Behind<br /><span className="text-brand">18+ Years of Delivery</span>
       </h1>
       <p className="mt-4 text-gray-600 dark:text-ink-secondary font-body text-base md:text-lg max-w-2xl">
         Curated, battle-tested skills across the full spectrum — from architecture and cloud to agile coaching and AI-assisted development.

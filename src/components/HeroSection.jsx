@@ -15,7 +15,7 @@ const PILLARS = [
   {
     icon: Shield,
     title: 'Engineering Lead',
-    tags: ['Angular', 'React', 'Node.js', 'AWS', 'CI/CD', 'TypeScript'],
+    tags: ['Angular', 'React', 'Node', '.NET', 'AWS', 'CI/CD', 'TypeScript'],
   },
   {
     icon: Zap,
@@ -25,7 +25,7 @@ const PILLARS = [
   {
     icon: Bot,
     title: 'AI Practitioner',
-    tags: ['OpenAI', 'GitLab Duo', 'Copilot', 'n8n'],
+    tags: ['Claude', 'Gemini', 'OpenAI', 'GitLab Duo', 'Copilot', 'n8n'],
   },
 ]
 
@@ -44,7 +44,7 @@ const AWARDS = [
 ]
 
 /**
- * Clean single rotating testimonial card for the hero right column.
+ * Editorial pull-quote testimonial — inline between bio and proof points.
  */
 const HeroTestimonial = () => {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -65,75 +65,77 @@ const HeroTestimonial = () => {
   const initials = active.name.split(' ').map(n => n[0]).join('')
 
   return (
-    <div className={cn(
-      'rounded-2xl p-6 flex flex-col gap-5',
-      'bg-white dark:bg-dark-card light:bg-white',
-      'border border-light-border dark:border-dark-border',
-      'shadow-card-light dark:shadow-card-dark'
-    )}>
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <span className="text-xs font-body font-semibold text-brand uppercase tracking-widest">
-          What colleagues say
-        </span>
-        <Link
-          to="/testimonials"
-          className="text-xs font-body text-gray-400 dark:text-ink-muted hover:text-brand transition-colors duration-150 focus-visible:outline-none"
-        >
-          {TESTIMONIALS.length} recommendations →
-        </Link>
-      </div>
+    <div className="flex gap-5 items-stretch max-w-2xl">
+      {/* Left accent bar */}
+      <div className="w-0.5 shrink-0 rounded-full bg-brand" />
 
-      {/* Quote */}
-      <div
-        className={cn(
-          'transition-opacity duration-350',
-          visible ? 'opacity-100' : 'opacity-0'
-        )}
-      >
-        <p className="font-display font-semibold text-base text-gray-900 dark:text-ink-primary leading-snug mb-5"
-          style={{ letterSpacing: '-0.02em' }}
-        >
-          &ldquo;{active.quote}&rdquo;
-        </p>
+      <div className="flex flex-col gap-4 py-1">
+        {/* Quote — fixed height prevents layout shift between slides */}
+        <div className="min-h-[5rem] md:min-h-[6rem]">
+          <p
+            className={cn(
+              'font-display font-semibold italic text-xl md:text-2xl text-gray-900 dark:text-ink-primary leading-snug',
+              'transition-opacity duration-350',
+              visible ? 'opacity-100' : 'opacity-0'
+            )}
+            style={{ letterSpacing: '-0.025em' }}
+          >
+            &ldquo;{active.quote}&rdquo;
+          </p>
+        </div>
 
-        <div className="flex items-center gap-3">
-          <div className={cn(
-            'w-9 h-9 rounded-full flex items-center justify-center shrink-0 text-xs font-display font-bold',
-            'bg-brand/10 text-brand border border-brand/20'
-          )}>
-            {initials}
+        {/* Attribution + dots row */}
+        <div
+          className={cn(
+            'flex items-center justify-between gap-4 transition-opacity duration-350',
+            visible ? 'opacity-100' : 'opacity-0'
+          )}
+        >
+          <div className="flex items-center gap-3">
+            <div className={cn(
+              'w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-xs font-display font-bold',
+              'bg-brand/10 text-brand border border-brand/20'
+            )}>
+              {initials}
+            </div>
+            <div>
+              <p className="font-display font-semibold text-sm text-gray-900 dark:text-ink-primary leading-tight">
+                {active.name}
+              </p>
+              <p className="font-body text-xs text-gray-500 dark:text-ink-muted leading-tight mt-0.5">
+                {active.title} · {active.company}
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="font-display font-semibold text-sm text-gray-900 dark:text-ink-primary leading-tight">
-              {active.name}
-            </p>
-            <p className="font-body text-xs text-gray-500 dark:text-ink-muted leading-tight mt-0.5">
-              {active.title} · {active.company}
-            </p>
+
+          <div className="flex items-center gap-1.5 shrink-0">
+            {TESTIMONIALS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setVisible(false)
+                  setTimeout(() => { setActiveIndex(i); setVisible(true) }, 350)
+                }}
+                aria-label={`View testimonial ${i + 1}`}
+                className={cn(
+                  'rounded-full transition-[width,background-color] duration-300',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand',
+                  i === activeIndex
+                    ? 'w-5 h-1.5 bg-brand'
+                    : 'w-1.5 h-1.5 bg-gray-300 dark:bg-dark-muted hover:bg-brand/50'
+                )}
+              />
+            ))}
           </div>
         </div>
-      </div>
 
-      {/* Dot indicators */}
-      <div className="flex items-center gap-1.5">
-        {TESTIMONIALS.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setVisible(false)
-              setTimeout(() => { setActiveIndex(i); setVisible(true) }, 350)
-            }}
-            aria-label={`View testimonial ${i + 1}`}
-            className={cn(
-              'rounded-full transition-[width,background-color] duration-300',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand',
-              i === activeIndex
-                ? 'w-5 h-1.5 bg-brand'
-                : 'w-1.5 h-1.5 bg-gray-300 dark:bg-dark-muted hover:bg-brand/50'
-            )}
-          />
-        ))}
+        {/* Link */}
+        <Link
+          to="/testimonials"
+          className="self-start text-xs font-body text-gray-400 dark:text-ink-muted hover:text-brand transition-colors duration-150 focus-visible:outline-none"
+        >
+          Recommendations →
+        </Link>
       </div>
     </div>
   )
@@ -180,10 +182,10 @@ const HeroSection = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 lg:px-12 w-full">
 
-        {/* Two-column layout: content left, testimonial right */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 lg:gap-16 items-start">
+        {/* Single-column layout */}
+        <div>
 
-          {/* ── Left: main content ── */}
+          {/* ── Main content ── */}
           <div>
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-brand/30 bg-brand/8 animate-fade-in">
@@ -257,6 +259,14 @@ const HeroSection = () => {
               for application delivery, Product Owners, and stakeholders — while fostering team
               maturity, psychological safety, and continuous improvement.
             </p>
+
+            {/* Pull-quote testimonial */}
+            <div
+              className="mb-10 animate-fade-up"
+              style={{ animationDelay: '380ms' }}
+            >
+              <HeroTestimonial />
+            </div>
 
             {/* Proof point chips */}
             <div
@@ -367,13 +377,6 @@ const HeroSection = () => {
                   {award}
                 </span>
               ))}
-            </div>
-          </div>
-
-          {/* ── Right: testimonial card (sticky on desktop) ── */}
-          <div className="hidden lg:block">
-            <div className="sticky top-32">
-              <HeroTestimonial />
             </div>
           </div>
 

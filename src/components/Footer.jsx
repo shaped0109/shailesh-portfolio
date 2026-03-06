@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
-import { Linkedin, Github, Mail } from 'lucide-react'
+import { Linkedin, Mail } from 'lucide-react'
 import { cn } from '../utils/cn'
 
 const SOCIAL = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/shailesh-pedgaonkar', icon: <Linkedin size={18} strokeWidth={1.75} /> },
-  { label: 'GitHub',   href: 'https://github.com/[ADD_GITHUB_USERNAME]',        icon: <Github size={18} strokeWidth={1.75} /> },
-  { label: 'Email',    href: 'mailto:shailesh.tech.in@gmail.com',                icon: <Mail size={18} strokeWidth={1.75} /> },
+{ label: 'Email',    href: 'mailto:shailesh.tech.in@gmail.com',                icon: <Mail size={18} strokeWidth={1.75} /> },
 ]
 
 /**

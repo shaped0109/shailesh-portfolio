@@ -35,7 +35,7 @@ const TECH_AREAS = [
   {
     icon: GitBranch,
     label: 'DevOps & AI',
-    items: ['GitLab CI/CD', 'TeamCity', 'OpenAI', 'GitLab Duo', 'n8n'],
+    items: ['GitLab CI/CD', 'TeamCity', 'OpenAI', 'Gemini', 'Claude Code', 'GitLab Duo', 'Cursor', 'Windsurf', 'VS Code + Copilot', 'n8n'],
   },
 ]
 
@@ -122,7 +122,7 @@ const About = () => (
               text: "I hold an MCA from Pune University and am certified as a SAFe 6.0 Agilist, SAFe Scrum Master, and an AI for Scrum Masters practitioner. I believe technology is only as good as the people and processes behind it — which is why I invest equally in engineering quality and team psychological safety.",
             },
             {
-              text: "Outside formal roles, I'm fascinated by AI-assisted development, exploring tools like Claude Code, Aantigravity, Cursor, GitLab Duo, and n8n automation. I'm a Hackathon winner and a multiple-time recipient of EXFO's Excellence and Appreciation Awards.",
+              text: "Outside formal roles, I'm fascinated by AI-assisted development, exploring tools like Claude Code, Windsurf, Cursor, GitLab Duo, and n8n automation. I'm a Hackathon winner and a multiple-time recipient of EXFO's Excellence and Appreciation Awards.",
             },
           ].map(({ text }, i) => (
             <Section key={i} index={i + 1}>

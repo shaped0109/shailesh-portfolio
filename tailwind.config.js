@@ -8,50 +8,50 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Brand accent — deep teal
+        // Brand accent — Claude coral/terracotta
         brand: {
-          50:  '#edfafa',
-          100: '#d5f5f6',
-          200: '#afecee',
-          300: '#7edce2',
-          400: '#16bdca',
-          500: '#0D9488',
-          600: '#0D7A6E',
-          700: '#0a5f56',
-          800: '#0c4a44',
-          900: '#0d3d39',
-          DEFAULT: '#0D7A6E',
+          50:  '#fdf3ef',
+          100: '#fae4da',
+          200: '#f5c7b3',
+          300: '#eda485',
+          400: '#e37d58',
+          500: '#DA7756',
+          600: '#c45e3b',
+          700: '#a34730',
+          800: '#7f3826',
+          900: '#5c2a1c',
+          DEFAULT: '#DA7756',
         },
-        // Warm amber accent
+        // Secondary warm accent
         amber: {
-          DEFAULT: '#C97B2A',
-          light: '#e09040',
-          dark: '#a05f1a',
+          DEFAULT: '#E8956D',
+          light: '#f0ac88',
+          dark: '#c4714f',
         },
-        // Dark mode surfaces
+        // Dark mode surfaces — warm charcoal (Claude-style)
         dark: {
-          base:     '#0F0F0F',
-          surface:  '#141414',
-          elevated: '#1E1E1E',
-          card:     '#1A1A1A',
-          border:   '#2A2A2A',
-          muted:    '#3A3A3A',
+          base:     '#1C1917',
+          surface:  '#211E1B',
+          elevated: '#2C2825',
+          card:     '#272320',
+          border:   '#3D3733',
+          muted:    '#504945',
         },
-        // Light mode surfaces
+        // Light mode surfaces — warm cream (Claude-style)
         light: {
-          base:     '#F8F8F6',
-          surface:  '#FAFAF8',
+          base:     '#FAF9F6',
+          surface:  '#F5F2EC',
           elevated: '#FFFFFF',
-          card:     '#F3F3F0',
-          border:   '#E4E4E0',
-          muted:    '#D0D0CC',
+          card:     '#EDE9E1',
+          border:   '#DDD8CE',
+          muted:    '#C8C2B6',
         },
-        // Text tokens
+        // Text tokens — warm-tinted
         ink: {
-          primary:   '#EAEAEA',
-          secondary: '#A0A0A0',
-          muted:     '#6A6A6A',
-          inverse:   '#1A1A1A',
+          primary:   '#F2EDE6',
+          secondary: '#A89F96',
+          muted:     '#6E6560',
+          inverse:   '#1C1917',
         },
       },
       fontFamily: {
@@ -69,9 +69,9 @@ export default {
         'section-sm': '4rem',
       },
       boxShadow: {
-        'teal-sm':  '0 2px 8px rgba(13, 122, 110, 0.15)',
-        'teal-md':  '0 4px 20px rgba(13, 122, 110, 0.25)',
-        'teal-lg':  '0 8px 40px rgba(13, 122, 110, 0.35)',
+        'teal-sm':  '0 2px 8px rgba(218, 119, 86, 0.18)',
+        'teal-md':  '0 4px 20px rgba(218, 119, 86, 0.28)',
+        'teal-lg':  '0 8px 40px rgba(218, 119, 86, 0.38)',
         'card-dark': '0 2px 12px rgba(0,0,0,0.4)',
         'card-lift': '0 8px 30px rgba(0,0,0,0.5)',
         'card-light': '0 2px 12px rgba(0,0,0,0.08)',
