@@ -47,10 +47,10 @@ await new Promise(r => setTimeout(r, 800))
 // Scroll through page to trigger IntersectionObservers for all sections
 await page.evaluate(async () => {
   const totalHeight = document.body.scrollHeight
-  const step = window.innerHeight
+  const step = Math.floor(window.innerHeight / 4)
   for (let y = 0; y <= totalHeight; y += step) {
     window.scrollTo(0, y)
-    await new Promise(r => setTimeout(r, 120))
+    await new Promise(r => setTimeout(r, 80))
   }
   window.scrollTo(0, 0)
 })
