@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { to: '/experience',     label: 'Experience' },
   { to: '/skills',         label: 'Skills' },
   { to: '/certifications', label: 'Certifications' },
+  { to: '/projects',       label: 'Projects' },
   { to: '/testimonials',   label: 'Testimonials' },
   { to: '/contact',        label: 'Contact' },
 ]

@@ -10,6 +10,7 @@ const Experience     = lazy(() => import('./pages/Experience'))
 const Skills         = lazy(() => import('./pages/Skills'))
 const Certifications = lazy(() => import('./pages/Certifications'))
 const Contact        = lazy(() => import('./pages/Contact'))
+const Projects       = lazy(() => import('./pages/Projects'))
 const Testimonials   = lazy(() => import('./pages/Testimonials'))
 const NotFound       = lazy(() => import('./pages/NotFound'))
 
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/experience"     element={<Experience />} />
           <Route path="/skills"         element={<Skills />} />
           <Route path="/certifications" element={<Certifications />} />
+          <Route path="/projects"      element={<Projects />} />
           <Route path="/contact"        element={<Contact />} />
           <Route path="/testimonials"   element={<Testimonials />} />
           <Route path="*"               element={<NotFound />} />
