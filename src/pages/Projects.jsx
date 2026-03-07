@@ -131,7 +131,7 @@ const ProjectNav = ({ projects, activeId, onSelect }) => {
   return (
     <div id="project-nav" className="sticky top-16 z-30">
       <div className="max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
-        <div className="bg-light-base/95 dark:bg-dark-base/95 backdrop-blur-xl border border-t-0 border-light-border dark:border-dark-border shadow-card-light dark:shadow-card-dark overflow-hidden">
+        <div className="bg-light-base/95 dark:bg-dark-base/95 backdrop-blur-sm border-b border-light-border dark:border-dark-border overflow-hidden">
         <nav
           ref={navRef}
           aria-label="Project navigation"
