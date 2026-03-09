@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
 import { cn } from './utils/cn'
+import usePageTracking from './hooks/usePageTracking'
 
 // Lazy-loaded page components
 const Home           = lazy(() => import('./pages/Home'))
@@ -30,6 +31,7 @@ const PageLoader = () => (
  * Root component — defines all routes inside the main layout.
  */
 const App = () => {
+  usePageTracking()
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
