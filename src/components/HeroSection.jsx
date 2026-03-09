@@ -257,11 +257,11 @@ const HeroSection = () => {
               style={{ animationDelay: '340ms' }}
             >
               Hands-on{' '}
-              <strong className="font-semibold text-gray-900 dark:text-ink-primary">Technical Manager / Technical Specialist</strong>{' '}
-              with <strong className="font-semibold text-gray-900 dark:text-ink-primary">18+ years</strong>{' '}
-              delivering production-grade web and mobile systems — full-stack (Angular, Ionic, React, Node.js, .NET),
+              Technical Manager / Technical Specialist{' '}
+              with 18+ years{' '}
+              delivering production-grade desktop, web and mobile systems — full-stack (Angular, Ionic, React, Node.js, .NET),
               cloud-enabled, CI/CD-driven. Actively codes, owns architecture, and serves as the{' '}
-              <strong className="font-semibold text-gray-900 dark:text-ink-primary">single point of accountability</strong>{' '}
+              single point of accountability{' '}
               for delivery and stakeholders — while coaching teams toward continuous improvement.
             </p>
 

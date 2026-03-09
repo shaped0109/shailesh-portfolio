@@ -8,13 +8,13 @@ const CARDS = [
     to: '/projects',
     eyebrow: 'Case Studies',
     icon: Layers,
-    headline: 'Real Architecture.\nProduction Scale.',
+    headline: 'Engineered.\nDeployed & Proven.',
     description:
       'Full-stack systems designed, built, and shipped — with architecture diagrams, stack breakdowns, and my exact role on every project.',
     bullets: [
       'Angular + Node.js microservices on Linux hardware',
       'AWS multi-tenant firmware delivery pipeline',
-      'CI/CD, zero-downtime deploy & crash-recovery automation',
+      'Angular + .NET — Remote Monitoring system',
     ],
     cta: 'Explore Projects',
     glowClass: 'bg-brand/12',
