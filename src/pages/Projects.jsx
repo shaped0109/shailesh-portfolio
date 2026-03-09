@@ -5,6 +5,8 @@ import useInView from '../hooks/useInView'
 import { cn } from '../utils/cn'
 import exDiagramLight from '../assets/high-level-ex-block-light.svg'
 import exDiagramDark  from '../assets/high-level-ex-block-dark.svg'
+import exFirmwareLight from '../assets/ex-firware-update-light.svg'
+import exFirmwareDark  from '../assets/ex-firware-update-dark.svg'
 
 /**
  * Update this array to add, edit, or remove projects.
@@ -31,8 +33,8 @@ const PROJECTS = [
       client: {
         title: 'Client Architecture',
         points: [
-          'Angular (TypeScript) SPA — reactive component tree renders live test data and hardware metrics in real time.',
-          'Continuous REST API polling via RxJS intervals keeps the UI in sync with server state without full page reloads.',
+          'Angular (TypeScript) SPA — reactive components live test data and hardware metrics in real time.',
+          'Continuous REST API polling keeps the UI in sync with server/pod side state without full page reloads.',
           'Observer / Provider pattern drives reactive state propagation across the entire component tree.',
           'Swagger / OpenAPI contract defines all endpoint schemas — decouples the client team from backend implementation details.',
           'Jasmine unit and integration tests cover Angular services and component logic end-to-end.',
@@ -41,7 +43,7 @@ const PROJECTS = [
       server: {
         title: 'Server Architecture',
         points: [
-          'Node.js + TypeScript POD server hosts two independent microservices — APP1-SERVICES and APP2-TEST — each on a dedicated port.',
+          'Node.js (TypeScript) — POD server hosts two independent microservices — APP1-SERVICES and APP2-TEST — each on a dedicated port.',
           'Proxy / API Gateway (Port 80) routes requests by URL prefix, decoupling the client from the underlying service topology.',
           'Inversify DI container manages dependencies within each microservice, keeping services loosely coupled and independently testable.',
           'Observer pattern on the server enables event-driven response propagation across service boundaries.',
@@ -52,7 +54,6 @@ const PROJECTS = [
     stack: [
       { label: 'Angular',         category: 'Frontend' },
       { label: 'TypeScript',      category: 'Frontend' },
-      { label: 'RxJS',            category: 'Frontend' },
       { label: 'Observer Pattern',category: 'Frontend' },
       { label: 'Node.js',         category: 'Backend'  },
       { label: 'Microservices',   category: 'Backend'  },
@@ -69,48 +70,54 @@ const PROJECTS = [
     diagramAlt:     'High-level block diagram of the EX Multigigabit Residential & Business Services Tester showing Angular client on the left and Node.js microservices server on the right.',
   },
   {
-    title: 'GitLab DevSecOps CI/CD Automation Platform',
+    title: 'Firmware Update & Cloud Data Pipeline — EX Field Device Platform',
     status: 'Completed',
-    role: 'DevOps Lead & Scrum Master',
+    role: 'Cloud Architect & Backend Lead',
     description:
-      'A fully automated DevSecOps pipeline built on GitLab CI/CD, taking Angular and Node.js applications from code commit to production-ready Docker image — with integrated security scanning, automated regression, and zero-touch deployment stages across multiple environments.',
+      'A multi-tenant firmware delivery pipeline built on AWS, enabling secure over-the-air firmware updates to field device pods via tenant-isolated S3 buckets and pre-signed URLs. Field devices authenticate using TLS certificates and write structured test reports directly to a SaaS-owned S3 bucket, bypassing intermediate compute for the reporting path. The architecture enforces strict operator isolation at the IAM, Lambda, and database layers across Operator A, B, and C tenants.',
     architecture: {
       client: {
-        title: 'Pipeline — Build & Test',
+        title: 'Field Layer — Device & Mobile',
         points: [
-          'GitLab CI/CD YAML pipeline with multi-stage definitions: lint → unit test → build → security scan → package.',
-          'Angular front-end compiled and optimised; Jasmine and Playwright suites run headlessly inside Docker containers.',
-          'GitHub Copilot and GitLab Duo accelerate AI-assisted test generation, reducing manual spec authoring by ~40%.',
-          'Static code analysis and dependency vulnerability scanning baked into every merge-request pipeline.',
-          'Automated regression gate blocks merge to main if coverage drops below threshold.',
+          'Field device pods/hardware capture test metrics (PON Test, Ookla Speedtests, and Wi-Fi tests), packaging results as PDF, JSON, XML, or CSV reports.',
+          'A Node.js/Express Firmware Update Service runs on each pod, reading a burned-in device_id from ROM and initiating authenticated firmware update requests via REST.',
+          'Device identity is established using TLS mutual authentication — each pod holds a unique certificate in secure hardware, verified against a private CA before any cloud request is made.',
+          'A Technician Mobile App (iOS/Android) triggers firmware update flows and receives result feedback; report data is pushed directly from the pod to the SaaS S3 Reports Bucket via presigned PUT URL.',
+          'A Multi-Tenant Policy Engine on the client enforces per-operator versioning, scheduling, and compliance rules for Operator A, B, and C before any update request is dispatched.'
         ],
       },
       server: {
-        title: 'Pipeline — Package & Deploy',
+        title: 'Cloud Layer — AWS Processing & SaaS Platform',
         points: [
-          'Docker multi-stage builds produce lean production images; versioned and pushed to GitLab Container Registry.',
-          'TeamCity used for enterprise-grade build orchestration across multiple parallel agent pools.',
-          'Azure DevOps boards integrated for traceability — pipeline runs linked directly to work items and releases.',
-          'Bash-scripted environment promotion handles staged rollouts across dev, QA, and staging environments.',
-          'SAFe 6.0 cadence: PI Planning drives pipeline milestones; Scrum of Scrums coordinates cross-team dependencies.',
+          'All firmware update requests enter via Amazon API Gateway over HTTPS, passing through AWS WAF (DDoS/injection protection) and AWS Cognito/IAM for device identity verification before reaching Lambda.',
+          'A Lambda Firmware API function validates the incoming device_id against a MySQL RDS Device Registry DB, then routes the request to the correct tenant-isolated S3 firmware bucket (/tenant-a/firmware/, /tenant-b/firmware/, /tenant-c/firmware/) — cross-tenant access is denied at the IAM level.',
+          'Validated firmware binaries are returned to the pod via a short-lived S3 pre-signed GET URL (TTL 15 minutes), scoped per tenant — the pod downloads directly from S3 without proxying through Lambda.',
+          'The SaaS Platform owns the Reports S3 bucket and exposes a Sync Connector (OAuth2/Webhook) that reads from MySQL metadata to drive Fleet Analytics dashboards and zero-touch Auto Onboarding for new devices.',
         ],
       },
     },
     stack: [
-      { label: 'GitLab CI/CD',    category: 'DevOps'    },
-      { label: 'Docker',          category: 'DevOps'    },
-      { label: 'Azure DevOps',    category: 'DevOps'    },
-      { label: 'TeamCity',        category: 'DevOps'    },
-      { label: 'Bash Scripting',  category: 'DevOps'    },
-      { label: 'Angular',         category: 'Frontend'  },
-      { label: 'TypeScript',      category: 'Frontend'  },
-      { label: 'Node.js',         category: 'Backend'   },
-      { label: 'Playwright',      category: 'Testing'   },
-      { label: 'Jasmine',         category: 'Testing'   },
-      { label: 'GitHub Copilot',  category: 'AI'        },
-      { label: 'GitLab Duo',      category: 'AI'        },
-      { label: 'SAFe 6.0',        category: 'Other'     },
+      { label: 'Node.js',            category: 'Backend'   },
+      { label: 'Express',            category: 'Backend'   },
+      { label: 'AWS Lambda',         category: 'Cloud'     },
+      { label: 'Amazon API Gateway', category: 'Cloud'     },
+      { label: 'Amazon S3',          category: 'Cloud'     },
+      { label: 'AWS Cognito',        category: 'Cloud'     },
+      { label: 'AWS WAF',            category: 'Cloud'     },
+      { label: 'AWS SNS',            category: 'Cloud'     },
+      { label: 'AWS IAM',            category: 'Cloud'     },
+      { label: 'MySQL (RDS)',        category: 'Database'  },
+      { label: 'mTLS / X.509',       category: 'Other'     },
+      { label: 'OAuth2',             category: 'Other'     },
+      { label: 'Webhook',            category: 'Other'     },
+      { label: 'REST / HTTPS',       category: 'Other'     },
+      { label: 'iOS / Android',      category: 'Mobile'    },
+      { label: 'SaaS Sync Platform', category: 'Other'     },
     ],
+    diagramSrc:     exFirmwareLight,
+    diagramSrcDark: exFirmwareDark,
+    diagramAlt:
+      'Architecture diagram showing a multi-tenant IoT firmware update and cloud data pipeline. Left zone shows field device pods and mobile app connecting to a Node.js firmware update service with mTLS auth and ROM-based device identity. Centre-left shows AWS ingress via API Gateway, WAF, and Cognito. Centre-right shows AWS Lambda functions routing to tenant-isolated S3 firmware buckets for Operator A, B, and C, with pre-signed URL delivery back to the pod and a Lambda Normalize function indexing report metadata into MySQL RDS. Right zone shows a SaaS platform with an S3 reports bucket, sync connector, fleet analytics, and auto onboarding.',
   },
 ]
 
