@@ -81,7 +81,7 @@ const ProjectCard = ({ title, status, role, description, architecture, stack, di
           </span>
         </div>
 
-        <p className="font-body text-sm md:text-base text-gray-600 dark:text-ink-secondary leading-relaxed max-w-3xl">
+        <p className="font-body text-sm md:text-base text-gray-600 dark:text-ink-secondary leading-relaxed">
           {description}
         </p>
       </div>
