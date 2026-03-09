@@ -26,7 +26,7 @@ const PROJECTS = [
   {
     title: 'EX Multigigabit Residential & Business Services Tester',
     status: 'In Progress',
-    role: 'Full Stack Architect & Developer',
+    role: 'Technical Specialist, Tech Lead & Scrum Master',
     description:
       'A full-stack network services test platform built on a clean client-server architecture. An Angular front-end continuously polls a Node.js REST backend for live hardware test results, while server-side microservices handle service orchestration and execution — each isolated behind a central proxy gateway for clean separation of concerns.',
     architecture: {
@@ -72,7 +72,7 @@ const PROJECTS = [
   {
     title: 'Firmware Update & Cloud Data Pipeline — EX Field Device Platform',
     status: 'Completed',
-    role: 'Cloud Architect & Backend Lead',
+    role: 'Technical Specialist, Tech Lead & Scrum Master',
     description:
       'A multi-tenant firmware delivery pipeline built on AWS, enabling secure over-the-air firmware updates to field device pods via tenant-isolated S3 buckets and pre-signed URLs. Field devices authenticate using TLS certificates and write structured test reports directly to a SaaS-owned S3 bucket, bypassing intermediate compute for the reporting path. The architecture enforces strict operator isolation at the IAM, Lambda, and database layers across Operator A, B, and C tenants.',
     architecture: {
