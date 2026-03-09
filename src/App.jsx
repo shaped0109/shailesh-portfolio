@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
+import ScrollToTop from './components/ScrollToTop'
 import { cn } from './utils/cn'
 import usePageTracking from './hooks/usePageTracking'
 
@@ -34,6 +35,7 @@ const App = () => {
   usePageTracking()
   return (
     <Suspense fallback={<PageLoader />}>
+      <ScrollToTop />
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/"               element={<Home />} />

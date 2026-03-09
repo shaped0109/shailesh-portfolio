@@ -3,10 +3,9 @@ import { cn } from '../utils/cn'
 
 const STATS = [
   { value: '18+', label: 'Years Experience' },
-  { value: '3',   label: 'Certifications' },
   { value: '15+', label: 'Apps Delivered' },
-  { value: '3',   label: 'Mobile Apps' },
-  { value: '2',   label: 'Companies' },
+  { value: '0',   label: 'Post-Release Rollbacks' },
+  { value: '5+',  label: 'Industry Awards' },
 ]
 
 /**
@@ -28,7 +27,7 @@ const StatStrip = () => {
       )}
     >
       <div className="max-w-6xl mx-auto px-4 md:px-8 lg:px-12 py-6 md:py-8">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-0 md:divide-x divide-dark-border dark:divide-dark-border light:divide-light-border">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x divide-dark-border dark:divide-dark-border light:divide-light-border">
           {STATS.map(({ value, label }, i) => (
             <div
               key={label}

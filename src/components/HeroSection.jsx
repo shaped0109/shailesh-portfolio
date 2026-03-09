@@ -32,7 +32,7 @@ const PILLARS = [
 const PROOF_POINTS = [
   { value: '18+', label: 'years of hands-on delivery' },
   { value: '15+', label: 'products shipped to production' },
-  { value: '5→2', label: 'day release cycles' },
+  { value: '2d', label: 'sprint-to-release cycle' },
   { value: '0', label: 'post-release rollbacks' },
 ]
 
@@ -162,7 +162,7 @@ const HeroSection = () => {
   return (
     <section className={cn(
       'relative min-h-screen flex flex-col justify-center overflow-hidden',
-      'bg-light-base dark:bg-dark-base pt-28 pb-16'
+      'bg-light-base dark:bg-dark-base pt-28 pb-0'
     )}>
 
       {/* Background gradients + grid */}
@@ -232,32 +232,37 @@ const HeroSection = () => {
               and own the delivery — end to end.
             </p>
 
-            {/* Bio paragraph */}
+            {/* Awards / credibility strip — above bio for immediate visibility */}
+            <div
+              className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-8 animate-fade-up"
+              style={{ animationDelay: '300ms' }}
+            >
+              <span className="font-body text-xs text-gray-400 dark:text-ink-muted uppercase tracking-widest">
+                Recognised by
+              </span>
+              {AWARDS.map(award => (
+                <span
+                  key={award}
+                  className="flex items-center gap-1.5 font-body text-xs text-gray-500 dark:text-ink-secondary"
+                >
+                  <span className="text-amber" aria-hidden="true">✦</span>
+                  {award}
+                </span>
+              ))}
+            </div>
+
+            {/* Bio paragraph — single, tight */}
             <p
-              className="font-body text-base md:text-lg text-gray-600 dark:text-ink-secondary leading-relaxed max-w-2xl mb-4 animate-fade-up"
-              style={{ animationDelay: '320ms' }}
+              className="font-body text-base md:text-lg text-gray-600 dark:text-ink-secondary leading-relaxed max-w-3xl mb-10 animate-fade-up"
+              style={{ animationDelay: '340ms' }}
             >
               Hands-on{' '}
               <strong className="font-semibold text-gray-900 dark:text-ink-primary">Technical Manager / Technical Specialist</strong>{' '}
               with <strong className="font-semibold text-gray-900 dark:text-ink-primary">18+ years</strong>{' '}
-              delivering complex, production-grade web and mobile solutions through cloud-enabled
-              full-stack development (Angular, Ionic, React, Node.js, .NET). Actively codes, reviews designs, and resolves
-              complex technical challenges. Balances strong{' '}
-              <strong className="font-semibold text-gray-900 dark:text-ink-primary">technical ownership</strong>{' '}
-              (architecture, cloud, CI/CD, full-stack systems) with{' '}
-              <strong className="font-semibold text-gray-900 dark:text-ink-primary">people leadership</strong>{' '}
-              (Agile delivery, stakeholder management, and team coaching).
-            </p>
-            <p
-              className="font-body text-base md:text-lg text-gray-600 dark:text-ink-secondary leading-relaxed max-w-2xl mb-10 animate-fade-up"
-              style={{ animationDelay: '360ms' }}
-            >
-              Known for driving{' '}
-              <strong className="font-semibold text-gray-900 dark:text-ink-primary">predictable, value-driven delivery</strong>{' '}
-              without compromising engineering quality. Serves as the{' '}
+              delivering production-grade web and mobile systems — full-stack (Angular, Ionic, React, Node.js, .NET),
+              cloud-enabled, CI/CD-driven. Actively codes, owns architecture, and serves as the{' '}
               <strong className="font-semibold text-gray-900 dark:text-ink-primary">single point of accountability</strong>{' '}
-              for application delivery, Product Owners, and stakeholders — while fostering team
-              maturity, psychological safety, and continuous improvement.
+              for delivery and stakeholders — while coaching teams toward continuous improvement.
             </p>
 
             {/* Pull-quote testimonial */}
@@ -266,31 +271,6 @@ const HeroSection = () => {
               style={{ animationDelay: '380ms' }}
             >
               <HeroTestimonial />
-            </div>
-
-            {/* Proof point chips */}
-            <div
-              className="flex flex-wrap gap-3 mb-10 animate-fade-up"
-              style={{ animationDelay: '400ms' }}
-            >
-              {PROOF_POINTS.map(({ value, label }) => (
-                <div
-                  key={label}
-                  className={cn(
-                    'flex items-baseline gap-1.5 px-4 py-2 rounded-lg',
-                    'border border-light-border dark:border-dark-muted',
-                    'bg-light-card dark:bg-dark-elevated'
-                  )}
-                >
-                  <span
-                    className="font-display font-bold text-base text-brand"
-                    style={{ letterSpacing: '-0.03em' }}
-                  >
-                    {value}
-                  </span>
-                  <span className="font-body text-xs text-gray-500 dark:text-ink-secondary">{label}</span>
-                </div>
-              ))}
             </div>
 
             {/* Identity pillars */}
@@ -321,9 +301,9 @@ const HeroSection = () => {
                         key={tag}
                         className={cn(
                           'px-2 py-0.5 rounded text-xs font-body',
-                          'text-gray-500 dark:text-ink-muted',
-                          'bg-light-base dark:bg-dark-base',
-                          'border border-light-border dark:border-dark-border'
+                          'text-gray-700 dark:text-ink-secondary',
+                          'bg-light-surface dark:bg-dark-surface',
+                          'border border-light-border dark:border-dark-muted'
                         )}
                       >
                         {tag}
@@ -360,24 +340,6 @@ const HeroSection = () => {
               </Link>
             </div>
 
-            {/* Awards / credibility strip */}
-            <div
-              className="flex flex-wrap items-center gap-x-6 gap-y-2 animate-fade-up"
-              style={{ animationDelay: '620ms' }}
-            >
-              <span className="font-body text-xs text-gray-400 dark:text-ink-muted uppercase tracking-widest">
-                Recognised by
-              </span>
-              {AWARDS.map(award => (
-                <span
-                  key={award}
-                  className="flex items-center gap-1.5 font-body text-xs text-gray-500 dark:text-ink-secondary"
-                >
-                  <span className="text-amber" aria-hidden="true">✦</span>
-                  {award}
-                </span>
-              ))}
-            </div>
           </div>
 
         </div>
