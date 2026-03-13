@@ -26,7 +26,7 @@ import multilinkDark   from '../assets/multilink-architechture-dark.svg'
  */
 const PROJECTS = [
   {
-    title: 'EX Multigigabit Residential & Business Services Tester',
+    title: 'Multigigabit Services Tester',
     status: 'In Progress',
     role: 'Technical Specialist, Tech Lead & Scrum Master',
     description:
@@ -72,7 +72,7 @@ const PROJECTS = [
     diagramAlt:     'High-level block diagram of the EX Multigigabit Residential & Business Services Tester showing Angular client on the left and Node.js microservices server on the right.',
   },
   {
-    title: 'Firmware Update & Cloud Data Pipeline — EX Field Device Platform',
+    title: 'Firmware Update & Cloud Data Pipeline',
     status: 'Completed',
     role: 'Technical Specialist, Tech Lead & Scrum Master',
     description:
