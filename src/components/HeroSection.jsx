@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, MessageSquare, Shield, Zap, Bot } from 'lucide-react'
+import { Shield, Zap, Bot } from 'lucide-react'
 import { cn } from '../utils/cn'
 import { TESTIMONIALS } from '../data/testimonials'
 
 const ROLES = [
   'Technical Manager',
+  'Technical Lead',
   'SAFe Scrum Master',
+  'Scrum Coach',
   'Hands-on Engineer',
   'Agile Delivery Leader',
 ]
@@ -14,7 +16,7 @@ const ROLES = [
 const PILLARS = [
   {
     icon: Shield,
-    title: 'Engineering Lead',
+    title: 'Technical Lead',
     tags: ['Angular', 'React', 'Node', '.NET', 'AWS', 'CI/CD', 'TypeScript'],
   },
   {
@@ -315,30 +317,6 @@ const HeroSection = () => {
             </div>
 
             {/* CTA buttons */}
-            <div
-              className="flex flex-wrap gap-4 mb-14 animate-fade-up"
-              style={{ animationDelay: '540ms' }}
-            >
-              <Link
-                to="/experience"
-                className="flex items-center gap-2.5 px-7 py-4 rounded-xl bg-brand hover:bg-brand-700 text-white font-body font-semibold text-sm shadow-teal-md hover:shadow-teal-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
-              >
-                View My Work <ArrowRight size={16} />
-              </Link>
-              <Link
-                to="/contact"
-                className={cn(
-                  'flex items-center gap-2.5 px-7 py-4 rounded-xl font-body font-semibold text-sm',
-                  'border border-light-border dark:border-dark-border',
-                  'bg-light-card dark:bg-dark-elevated/40',
-                  'text-gray-900 dark:text-ink-primary',
-                  'hover:border-brand/50 hover:text-brand transition-colors duration-200',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2'
-                )}
-              >
-                <MessageSquare size={16} /> Get In Touch
-              </Link>
-            </div>
 
           </div>
 

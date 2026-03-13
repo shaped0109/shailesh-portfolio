@@ -95,7 +95,7 @@ const About = () => (
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand/20 to-amber/10 blur-xl scale-105" />
             <img
               src={shaileshPhoto}
-              alt="Shailesh Pedgaonkar — Technical Manager and Hands-on Engineer"
+              alt="Shailesh Pedgaonkar — Technical Manager, Hands-on Engineer and SAFe Scrum Coach"
               className="relative w-full max-w-sm mx-auto lg:max-w-full rounded-full object-cover aspect-square shadow-teal-lg"
               loading="lazy"
             />
@@ -109,7 +109,7 @@ const About = () => (
               text: (
                 <>
                   I'm <strong className="font-semibold text-gray-900 dark:text-ink-primary">Shailesh Pedgaonkar</strong> — a hands-on{' '}
-                  <strong className="font-semibold text-gray-900 dark:text-ink-primary">Technical Manager and Technical Specialist</strong>{' '}
+                  Technical Manager, Technical Specialist and Scrum Coach{' '}
                   with 18+ years delivering production-grade web and mobile solutions. I'm not the kind of manager who stops coding — I write code,
                   review architecture, debug production issues, and stay in the technical trenches alongside my team.
                 </>
