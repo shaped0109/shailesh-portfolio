@@ -7,6 +7,8 @@ import exDiagramLight from '../assets/high-level-ex-block-light.svg'
 import exDiagramDark  from '../assets/high-level-ex-block-dark.svg'
 import exFirmwareLight from '../assets/ex-firware-update-light.svg'
 import exFirmwareDark  from '../assets/ex-firware-update-dark.svg'
+import multilinkLight  from '../assets/multilink-architechture-light.svg'
+import multilinkDark   from '../assets/multilink-architechture-dark.svg'
 
 /**
  * Update this array to add, edit, or remove projects.
@@ -118,6 +120,51 @@ const PROJECTS = [
     diagramSrcDark: exFirmwareDark,
     diagramAlt:
       'Architecture diagram showing a multi-tenant IoT firmware update and cloud data pipeline. Left zone shows field device pods and mobile app connecting to a Node.js firmware update service with mTLS auth and ROM-based device identity. Centre-left shows AWS ingress via API Gateway, WAF, and Cognito. Centre-right shows AWS Lambda functions routing to tenant-isolated S3 firmware buckets for Operator A, B, and C, with pre-signed URL delivery back to the pod and a Lambda Normalize function indexing report metadata into MySQL RDS. Right zone shows a SaaS platform with an S3 reports bucket, sync connector, fleet analytics, and auto onboarding.',
+  },
+  {
+    title: 'Multilink Monitoring System',
+    status: 'Completed',
+    role: 'Technical Specialist & Tech Lead',
+    description:
+      'A multi-user, multimodule, and multiplatform global network test management software that provides centralised remote access to test platforms and modules deployed across multiple lab locations. A web-based dashboard — requiring no client software installation — connects concurrent users to rack-mounted and network field equipment through a centralised host server, delivering real-time test status, errors and alarms monitoring, file management, and per-user allocation from any browser.',
+    architecture: {
+      client: {
+        title: 'Platforms & Clients',
+        points: [
+          'PC or tablet connects to the host over HTTPS REST via any browser — the Angular Unified Dashboard UI (served by IIS) loads with no client software installation required.',
+          'Network field equipment runs two embedded platform services — a Test Stats Collector that pushes live telemetry to the host, and a Health Reporter that sends periodic heartbeat signals for continuous liveness monitoring.',
+          'Rack-mounted platforms expose a Windows RDP Service and a RESTful API via IIS; the RDP client renders the full module GUI inside the browser, while REST endpoints serve configuration and status data.',
+          'A CLI (command line interface) gateway provides a direct SSH channel for scripted session automation and remote module control — enabling repeatable, operator-defined test workflows without manual UI interaction.',
+        ],
+      },
+      server: {
+        title: 'Core, Gateway & Data Layer',
+        points: [
+          'Gateway layer sits between clients and the core — a Data Push Gateway ingests field equipment telemetry, a CLI Gateway handles SSH-based session automation, and a RESTful API + Windows RDP Service bridge rack-mounted platform connections.',
+          'Angular Web Application (IIS) serves the Unified Dashboard UI; behind it, a microservices layer runs focused services.',
+          'Centralised SQLite database persists assets and inventory records, health and event logs (SQLite Monitoring Log), and historical test telemetry (Test Statistics Store).',
+          'In-memory SQLite stores power real-time operations — a Live State Cache holds active platform and heartbeat data, a Test Stats Live Cache streams incoming telemetry, and a Session & Instance Registry tracks all active RDP sessions and module launchers.',
+          'All services are co-hosted on the central host platform — no external server required — with the microservices layer writing, logging, and persisting to the appropriate data stores through clearly separated read/write paths.',
+        ],
+      },
+    },
+    stack: [
+      { label: 'Angular',         category: 'Frontend'  },
+      { label: 'TypeScript',      category: 'Frontend'  },
+      { label: 'IIS',             category: 'Frontend'  },
+      { label: 'Microservices',   category: 'Backend'   },
+      { label: 'RESTful API',     category: 'Backend'   },
+      { label: 'Windows RDP',     category: 'Backend'   },
+      { label: 'SSH / CLI',       category: 'Backend'   },
+      { label: 'SQLite',          category: 'Database'  },
+      { label: 'In-Memory SQLite',category: 'Database'  },
+      { label: 'Jasmine/Karma',   category: 'Testing'   },
+      { label: 'HTTPS',           category: 'Other'     },
+      { label: 'OAuth2',          category: 'Other'     }
+    ],
+    diagramSrc:     multilinkLight,
+    diagramSrcDark: multilinkDark,
+    diagramAlt:     'Architecture diagram of the EXFO Multilink Monitoring System. Left side shows remote users connecting via browser over a customer LAN or internet. Centre shows the host server platform running Multilink server software with a centralised dashboard. Right side shows multiple connected groups of rack-mounted platforms and portable network field equipment, each with up to 8 test modules.',
   },
 ]
 
