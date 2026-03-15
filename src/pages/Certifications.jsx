@@ -2,12 +2,16 @@ import CertCard from '../components/CertCard'
 import useInView from '../hooks/useInView'
 import { Trophy } from 'lucide-react'
 import { cn } from '../utils/cn'
+import safeAgilist    from '../assets/badges/safe-agilist.png'
+import safeSsm        from '../assets/badges/safe-ssm.png'
+import aiScrumMaster  from '../assets/badges/ai-scrum-master.png'
+import puneUniversity from '../assets/badges/pune-university.png'
 
 const CERTIFICATIONS = [
-  { name: 'SAFe Agilist (SA)',                 issuer: 'Scaled Agile, Inc.',          year: 'SAFe 6.0' },
-  { name: 'SAFe Scrum Master (SSM)',           issuer: 'Scaled Agile, Inc.',          year: 'SAFe 6.0' },
-  { name: 'AI for Scrum Masters',              issuer: 'Scrum Alliance',              year: 'Microcredential' },
-  { name: 'Master in Computer Application',   issuer: 'Pune University, Maharashtra', year: 'Graduate Degree' },
+  { name: 'SAFe Agilist (SA)',               issuer: 'Scaled Agile, Inc.',           year: 'SAFe 6.0',        badge: safeAgilist },
+  { name: 'SAFe Scrum Master (SSM)',         issuer: 'Scaled Agile, Inc.',           year: 'SAFe 6.0',        badge: safeSsm },
+  { name: 'AI for Scrum Masters',            issuer: 'Scrum Alliance',               year: 'Microcredential', badge: aiScrumMaster },
+  { name: 'Master in Computer Application', issuer: 'Pune University, Maharashtra',  year: 'Graduate Degree', badge: puneUniversity },
 ]
 
 const AWARDS = [
@@ -59,7 +63,7 @@ const Certifications = () => (
       <section>
         <SectionHeader label="Recognition" title="Awards &" accent="Achievements" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {AWARDS.map(({ title, year, desc }, i) => (
+          {AWARDS.map(({ title, year, desc }) => (
             <div
               key={title}
               className={cn(

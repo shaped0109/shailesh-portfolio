@@ -139,11 +139,11 @@ const About = () => (
         <h2 className="font-display font-bold text-2xl md:text-3xl text-gray-900 dark:text-ink-primary tracking-tight mb-8">
           By the Numbers
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 items-stretch">
           {HIGHLIGHTS.map(({ value, label }, i) => (
-            <Section key={label} index={i}>
+            <Section key={label} index={i} className="h-full">
               <div className={cn(
-                'rounded-xl p-4 text-center',
+                'rounded-xl p-4 text-center h-full flex flex-col items-center justify-center',
                 'bg-white dark:bg-dark-card',
                 'border border-light-border dark:border-dark-border',
                 'hover:border-brand/30 transition-colors duration-200'
