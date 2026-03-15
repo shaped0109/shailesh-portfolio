@@ -140,7 +140,7 @@ const ProofOfWorkSection = () => {
   return (
     <section
       ref={ref}
-      className="bg-light-base dark:bg-dark-base pt-0 pb-20 md:pb-28"
+      className="bg-light-base dark:bg-dark-base pt-0 pb-10 md:pb-14"
       aria-labelledby="pow-heading"
     >
       <div className="max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
